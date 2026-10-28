@@ -73,6 +73,6 @@ def table($blob; $file; $rows; $max):
      elif .allow_label != "" then "To accept these breaking changes, add the label `\(.allow_label)` to the pull request."
      else "" end), ""
   else empty end),
-  "<sub>\(plural($unchanged | length; "unchanged spec")) skipped · requests used: \(.requests)"
+  "<sub>\(if ($unchanged | length) > 0 then "\(plural($unchanged | length; "unchanged spec")) skipped · " else "" end)requests used: \(.requests)"
   + (if .quota != "" then " · quota left this month: \(.quota)" else "" end)
   + " · [Specwise](https://specwise.hybridforgelab.com) by Hybrid Forge Lab</sub>"

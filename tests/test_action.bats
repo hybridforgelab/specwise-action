@@ -163,6 +163,7 @@ comment_body() { jq -r '.body' "$MOCK_DIR/gh_$1.json"; }
   [[ $body == *"add the label \`breaking-ok\`"* ]]
   [[ $body != *"legacy/openapi.yaml"* ]] # unchanged: not worth a line
   grep -q "## Specwise ❌" "$GITHUB_STEP_SUMMARY"
+  [[ $body == *"<sub>2 unchanged specs skipped · requests used: 1 · quota left this month: 13 · "* ]]
 }
 
 @test "the allow label accepts the breaking changes: passes, annotations become warnings" {
@@ -200,11 +201,12 @@ comment_body() { jq -r '.body' "$MOCK_DIR/gh_$1.json"; }
 
 @test "changes without breaking ones pass" {
   cp "$ROOT/tests/responses/diff_200_none.json" "$MOCK_DIR/body_200_diff"
-  run_action
+  INPUT_SPEC_PATHS="api/openapi.yaml" run_action
   [ "$status" -eq 0 ]
   [ "$(out breaking)" = false ]
   [ "$(out semver)" = none ]
   [[ $(comment_body post) == *"No changes to the API"* ]]
+  [[ $(comment_body post) == *"<sub>requests used: 1 · [Specwise]"* ]] # no "0 unchanged specs"
 }
 
 # ---------- what costs nothing ----------
@@ -217,6 +219,7 @@ comment_body() { jq -r '.body' "$MOCK_DIR/gh_$1.json"; }
   [ ! -f "$MOCK_DIR/gh_post.json" ]
   [ "$(out passed)" = true ]
   [ "$(out specs-compared)" = 0 ]
+  grep -q "<sub>3 unchanged specs skipped · requests used: 0" "$GITHUB_STEP_SUMMARY"
   grep -q "No OpenAPI spec changed in this pull request." "$GITHUB_STEP_SUMMARY"
 }
 
