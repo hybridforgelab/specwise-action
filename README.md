@@ -8,7 +8,7 @@ Find the **breaking changes** a pull request makes to your **OpenAPI spec**, bef
 - a response property that was removed or may now be missing;
 - an operation that now requires authentication.
 
-That's 26 kinds of breaking change, out of 69 kinds of change it classifies as breaking, warning, non-breaking or info.
+That's 26 kinds of breaking change, out of 70 kinds of change it classifies as breaking, warning, non-breaking or info.
 
 How it works:
 
