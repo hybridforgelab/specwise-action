@@ -165,6 +165,9 @@ while IFS= read -r f; do
   record --arg file "$f" --arg status "$status" --slurpfile d "$WORK/diff.json" --slurpfile v "$WORK/validate.json" \
     '{file: $file, status: $status, diff: $d[0], validate: $v[0]}'
 done < <(discover)
+if [[ ! -s $RESULTS ]]; then
+  echo "::notice::No tracked file matches spec-paths ($INPUT_SPEC_PATHS)."
+fi
 
 # 4. A label can accept the breaking changes
 allowed=false

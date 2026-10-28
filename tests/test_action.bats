@@ -79,6 +79,22 @@ comment_body() { jq -r '.body' "$MOCK_DIR/gh_$1.json"; }
   [[ $output != *README* ]]
 }
 
+@test "globs: /**/ also matches no folder at all" {
+  source "$ROOT/scripts/lib.sh"
+  glob_match demo/openapi.yaml 'demo/**/openapi.yaml'
+  glob_match demo/v1/openapi.yaml 'demo/**/openapi.yaml'
+  glob_match a/b/c/openapi.yaml 'a/**/openapi.yaml'
+  glob_match openapi.yaml '**/openapi.yaml'
+  ! glob_match other/openapi.yaml 'demo/**/openapi.yaml'
+  ! glob_match demo/openapi.json 'demo/**/openapi.yaml'
+}
+
+@test "no file matches spec-paths: a notice instead of a silent pass" {
+  INPUT_SPEC_PATHS="nowhere/**/openapi.yaml" run_action
+  [ "$status" -eq 0 ]
+  [[ $output == *"::notice::No tracked file matches spec-paths (nowhere/**/openapi.yaml)."* ]]
+}
+
 @test "spec kind: OpenAPI 3 in YAML, pretty and minified JSON; Swagger 2.0; anything else" {
   source "$ROOT/scripts/lib.sh"
   cd "$BATS_TEST_TMPDIR"
