@@ -1,5 +1,11 @@
 # Specwise GitHub Action
 
+[![CI](https://github.com/hybridforgelab/specwise-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/hybridforgelab/specwise-action/actions/workflows/ci.yml)
+[![E2E](https://github.com/hybridforgelab/specwise-action/actions/workflows/e2e.yml/badge.svg?branch=main)](https://github.com/hybridforgelab/specwise-action/actions/workflows/e2e.yml)
+[![Release](https://img.shields.io/github/v/release/hybridforgelab/specwise-action)](https://github.com/hybridforgelab/specwise-action/releases)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-specwise-blue?logo=github)](https://github.com/marketplace/actions/specwise-openapi-breaking-change-check)
+[![License: MIT](https://img.shields.io/github/license/hybridforgelab/specwise-action)](LICENSE)
+
 Find the **breaking changes** a pull request makes to your **OpenAPI spec**, before your clients do:
 
 - a removed path or operation;
