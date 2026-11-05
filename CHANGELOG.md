@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/hybridforgelab/specwise-action/compare/v1.0.1...v1.0.2) (2026-11-05)
+
+
+### Bug Fixes
+
+* point the RapidAPI pricing links at the ByteStay org ([#10](https://github.com/hybridforgelab/specwise-action/issues/10)) ([87b8e60](https://github.com/hybridforgelab/specwise-action/commit/87b8e60505a0c042ad989a1d7d8ee4996e5cbdcf))
+
 ## [1.0.1](https://github.com/hybridforgelab/specwise-action/compare/v1.0.0...v1.0.1) (2026-10-28)
 
 
