@@ -46,7 +46,7 @@ jobs:
           rapidapi-key: ${{ secrets.RAPIDAPI_KEY }}
 ```
 
-1. Subscribe to the [Specwise API on RapidAPI](https://rapidapi.com/hybrid-forge-lab-hybrid-forge-lab-default/api/specwise-openapi-validator-and-diff-api). Basic is $0 with a hard limit, so it never runs up a bill.
+1. Subscribe to the [Specwise API on RapidAPI](https://rapidapi.com/bytestay-bytestay-default/api/specwise-openapi-validator-and-diff-api). Basic is $0 with a hard limit, so it never runs up a bill.
 2. Add your RapidAPI key as the repository secret `RAPIDAPI_KEY`.
 3. Add the workflow above.
 

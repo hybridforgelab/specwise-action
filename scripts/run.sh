@@ -6,7 +6,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=scripts/lib.sh
 source "$HERE/lib.sh"
 
-PRICING="https://rapidapi.com/hybrid-forge-lab-hybrid-forge-lab-default/api/specwise-openapi-validator-and-diff-api/pricing"
+PRICING="https://rapidapi.com/bytestay-bytestay-default/api/specwise-openapi-validator-and-diff-api/pricing"
 MARKER="<!-- specwise-action -->"
 OUT="${GITHUB_OUTPUT:-/dev/null}"
 SUMMARY="${GITHUB_STEP_SUMMARY:-/dev/null}"
