@@ -1,9 +1,16 @@
 # Specwise GitHub Action
 
+> [!IMPORTANT]
+> **This Action has moved to [Bytestay/specwise-action](https://github.com/Bytestay/specwise-action).** It is on the GitHub Marketplace as [ByteStay Specwise](https://github.com/marketplace/actions/bytestay-specwise-openapi-breaking-change-check).
+>
+> - Change `uses: hybridforgelab/specwise-action@v1` to `uses: Bytestay/specwise-action@v1`.
+> - The inputs and outputs are the same, so nothing else changes.
+> - This repository keeps working, but it gets no more updates, and every run prints a warning that points to the new one.
+
 [![CI](https://github.com/hybridforgelab/specwise-action/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/hybridforgelab/specwise-action/actions/workflows/ci.yml)
 [![E2E](https://github.com/hybridforgelab/specwise-action/actions/workflows/e2e.yml/badge.svg?branch=main)](https://github.com/hybridforgelab/specwise-action/actions/workflows/e2e.yml)
 [![Release](https://img.shields.io/github/v/release/hybridforgelab/specwise-action)](https://github.com/hybridforgelab/specwise-action/releases)
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-specwise-blue?logo=github)](https://github.com/marketplace/actions/specwise-openapi-breaking-change-check)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-specwise-blue?logo=github)](https://github.com/marketplace/actions/bytestay-specwise-openapi-breaking-change-check)
 [![License: MIT](https://img.shields.io/github/license/hybridforgelab/specwise-action)](LICENSE)
 
 Find the **breaking changes** a pull request makes to your **OpenAPI spec**, before your clients do:
@@ -41,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: hybridforgelab/specwise-action@v1
+      - uses: Bytestay/specwise-action@v1
         with:
           rapidapi-key: ${{ secrets.RAPIDAPI_KEY }}
 ```
@@ -137,7 +144,7 @@ If your spec uses `$ref: ./schemas/pet.yaml`, bundle it into one file first and 
 
 ```yaml
       - run: npx @redocly/cli@latest bundle api/openapi.yaml -o openapi.bundled.yaml
-      - uses: hybridforgelab/specwise-action@v1
+      - uses: Bytestay/specwise-action@v1
         with:
           rapidapi-key: ${{ secrets.RAPIDAPI_KEY }}
           spec-paths: openapi.bundled.yaml

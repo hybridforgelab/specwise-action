@@ -2,6 +2,9 @@
 # Specwise GitHub Action: report the breaking changes a pull request makes to its OpenAPI specs.
 set -euo pipefail
 
+# This repository is legacy: the Action moved to Bytestay/specwise-action. Tell every caller, then carry on as before.
+echo "::warning::hybridforgelab/specwise-action has moved to Bytestay/specwise-action. Change uses: to Bytestay/specwise-action@v1 (same inputs). This copy gets no more updates."
+
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=scripts/lib.sh
 source "$HERE/lib.sh"

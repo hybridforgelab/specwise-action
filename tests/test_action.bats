@@ -407,3 +407,10 @@ comment_body() { jq -r '.body' "$MOCK_DIR/gh_$1.json"; }
   run_action
   [[ $output == *"::add-mask::test-key"* ]]
 }
+
+@test "every run first warns that the Action moved to Bytestay, then carries on as before" {
+  INPUT_RAPIDAPI_KEY="" run_action
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "::warning::hybridforgelab/specwise-action has moved to Bytestay/specwise-action. Change uses: to Bytestay/specwise-action@v1 (same inputs). This copy gets no more updates." ]
+  [[ $output == *"skipped: no rapidapi-key"* ]]
+}
