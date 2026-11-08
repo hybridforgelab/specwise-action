@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/hybridforgelab/specwise-action/compare/v1.0.2...v1.0.3) (2026-11-08)
+
+
+### Bug Fixes
+
+* warn that the Action moved to Bytestay/specwise-action ([#12](https://github.com/hybridforgelab/specwise-action/issues/12)) ([10fc296](https://github.com/hybridforgelab/specwise-action/commit/10fc296df020e0ba0af6780cf199798f1f7e140b))
+
 ## [1.0.2](https://github.com/hybridforgelab/specwise-action/compare/v1.0.1...v1.0.2) (2026-11-05)
 
 
